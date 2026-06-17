@@ -1,25 +1,29 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { cta } from "../../data/content";
 import { Button } from "../ui/Button";
 import { ScrollReveal } from "../ui/ScrollReveal";
 
 export function CTABanner() {
+  const { scrollYProgress } = useScroll();
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
+
   return (
     <section className="py-24">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <ScrollReveal>
           <div className="overflow-hidden rounded-3xl border border-teal/20 bg-navy shadow-2xl">
             <div className="grid lg:grid-cols-2">
-              <div className="relative h-64 lg:h-auto">
+              <motion.div style={{ scale: imgScale }} className="relative h-64 lg:h-auto">
                 <img
                   src={cta.image}
                   alt="Engineering excellence"
+                  loading="lazy"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-navy/80 lg:bg-gradient-to-r lg:from-transparent lg:to-navy" />
-              </div>
+              </motion.div>
               <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16">
                 <motion.h2
                   initial={{ opacity: 0, x: 20 }}

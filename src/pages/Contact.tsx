@@ -9,11 +9,17 @@ import {
   CheckCircle,
 } from "lucide-react";
 import { company, contactForm, socialLinks } from "../data/content";
+import { usePageMeta } from "../hooks/usePageMeta";
 import { SectionHeader } from "../components/ui/SectionHeader";
 import { Button } from "../components/ui/Button";
 import { ScrollReveal } from "../components/ui/ScrollReveal";
 
 export function Contact() {
+  usePageMeta({
+    title: "Contact KEMMAX",
+    description:
+      "Contact KEMMAX today for a free consultation and quote. Our team is ready to engineer the right controlled environment for your facility.",
+  });
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 

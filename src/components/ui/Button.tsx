@@ -32,8 +32,9 @@ export function Button({
       <motion.a
         href={href}
         className={classes}
-        whileHover={{ scale: 1.03 }}
-        whileTap={{ scale: 0.98 }}
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+        transition={{ type: "spring", stiffness: 400, damping: 17 }}
       >
         {children}
       </motion.a>
@@ -43,8 +44,9 @@ export function Button({
   return (
     <motion.button
       className={classes}
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.98 }}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      transition={{ type: "spring", stiffness: 400, damping: 17 }}
       {...props}
     >
       {children}

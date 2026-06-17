@@ -5,6 +5,11 @@ import { Menu, X, ArrowRight } from "lucide-react";
 import { navLinks, company } from "../../data/content";
 import { Button } from "../ui/Button";
 
+const navLinkVariants = {
+  hover: { scale: 1.05, transition: { type: "spring" as const, stiffness: 300, damping: 15 } },
+  tap: { scale: 0.95 },
+};
+
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
@@ -24,7 +29,7 @@ export function Navbar() {
   const navBg =
     scrolled || !isHome
       ? "glass-light shadow-lg shadow-navy/5"
-      : "bg-transparent";
+      : "bg-navy/60 backdrop-blur-sm border-b border-white/10";
 
   const textColor = scrolled || !isHome ? "text-navy" : "text-white";
 
@@ -43,15 +48,21 @@ export function Navbar() {
 
         <div className="hidden items-center gap-8 md:flex">
           {navLinks.map((link) => (
-            <Link
+            <motion.div
               key={link.path}
-              to={link.path}
-              className={`text-sm font-medium tracking-wide transition-colors hover:text-teal ${textColor} ${
-                location.pathname === link.path ? "text-teal" : ""
-              }`}
+              variants={navLinkVariants}
+              whileHover="hover"
+              whileTap="tap"
             >
-              {link.label}
-            </Link>
+              <Link
+                to={link.path}
+                className={`text-sm font-medium tracking-wide transition-colors hover:text-teal ${textColor} ${
+                  location.pathname === link.path ? "text-teal" : ""
+                }`}
+              >
+                {link.label}
+              </Link>
+            </motion.div>
           ))}
         </div>
 

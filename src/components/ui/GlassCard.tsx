@@ -24,7 +24,9 @@ export function GlassCard({
 }: GlassCardProps) {
   return (
     <motion.div
-      className={`rounded-2xl p-6 ${variantClasses[variant]} ${hover ? "transition-all duration-300 hover:scale-[1.02] hover:glow-teal" : ""} ${className}`}
+      className={`rounded-2xl p-6 ${variantClasses[variant]} ${hover ? "hover:glow-teal" : ""} ${className}`}
+      whileHover={hover ? { scale: 1.03, y: -3 } : undefined}
+      transition={{ type: "spring", stiffness: 300, damping: 15 }}
       {...props}
     >
       {children}
