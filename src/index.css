@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --color-teal: #00a89e;
+  --color-teal-dark: #008f87;
+  --color-teal-light: #33bab2;
+  --color-navy: #0a1628;
+  --color-navy-light: #142238;
+  --color-surface: #f8fafb;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Space Grotesk", system-ui, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-white font-sans text-navy antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+  }
+
+  .glass-light {
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(0, 168, 158, 0.12);
+    box-shadow: 0 8px 32px rgba(10, 22, 40, 0.08);
+  }
+
+  .glass-teal {
+    background: rgba(0, 168, 158, 0.12);
+    backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid rgba(0, 168, 158, 0.25);
+  }
+
+  .text-gradient-teal {
+    background: linear-gradient(135deg, #00a89e 0%, #33bab2 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-teal {
+    box-shadow: 0 0 40px rgba(0, 168, 158, 0.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
