@@ -1,21 +1,27 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { hero } from "../../data/content";
 import { Button } from "../ui/Button";
 import { GlassCard } from "../ui/GlassCard";
 
 export function Hero() {
+  const { scrollY } = useScroll();
+  const bgY = useTransform(scrollY, [0, 500], [0, 150]);
+  const contentY = useTransform(scrollY, [0, 500], [0, -50]);
+
   return (
     <section className="relative flex min-h-screen items-center justify-center overflow-hidden">
-      <div
+      <motion.div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: `url(${hero.backgroundImage})` }}
+        style={{ backgroundImage: `url(${hero.backgroundImage})`, y: bgY }}
+        role="img"
+        aria-label="Clean room facility background"
       />
       <div className="absolute inset-0 bg-gradient-to-b from-navy/90 via-navy/80 to-navy/95" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,168,158,0.15),transparent_60%)]" />
 
-      <div className="relative z-10 mx-auto max-w-7xl px-4 py-32 text-center md:px-8">
+      <motion.div style={{ y: contentY }} className="relative z-10 mx-auto max-w-7xl px-4 py-24 text-center md:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -89,7 +95,7 @@ export function Hero() {
             </motion.div>
           ))}
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

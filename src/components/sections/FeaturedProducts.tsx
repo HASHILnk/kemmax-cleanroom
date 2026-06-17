@@ -1,9 +1,25 @@
 import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { featuredProducts } from "../../data/content";
 import { SectionHeader } from "../ui/SectionHeader";
-import { staggerContainer, staggerItem } from "../ui/ScrollReveal";
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+  },
+};
+
+const staggerItem: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring" as const, stiffness: 200, damping: 20 },
+  },
+};
 
 export function FeaturedProducts() {
   return (
@@ -29,6 +45,7 @@ export function FeaturedProducts() {
                   <img
                     src={product.image}
                     alt={product.name}
+                    loading="lazy"
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <span className="absolute top-4 left-4 rounded-full bg-teal px-3 py-1 text-xs font-semibold text-white">

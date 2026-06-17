@@ -6,10 +6,26 @@ import {
   Stethoscope,
   type LucideIcon,
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { industries } from "../../data/content";
 import { SectionHeader } from "../ui/SectionHeader";
-import { staggerContainer, staggerItem } from "../ui/ScrollReveal";
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+  },
+};
+
+const staggerItem: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring" as const, stiffness: 200, damping: 20 },
+  },
+};
 
 const iconMap: Record<string, LucideIcon> = {
   pill: Pill,
@@ -45,6 +61,7 @@ export function IndustriesGrid() {
                     <img
                       src={industry.image}
                       alt={industry.name}
+                      loading="lazy"
                       className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-navy/80 to-transparent" />

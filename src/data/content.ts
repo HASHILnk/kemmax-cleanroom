@@ -1,7 +1,7 @@
 export const company = {
   name: "KEMMAX",
   legalName: "Clean Room Projects (OPC) Pvt Ltd",
-  tagline: "Design • Engineering • Commissioning • HVAC",
+  tagline: "Engineering Clean. Building Trust.",
   phone: "+91 9042676645",
   phoneRaw: "919042676645",
   email: "Kemmaxcpl@gmail.com",
@@ -26,7 +26,7 @@ export const navLinks = [
 export const hero = {
   headline: "Your Vision. Our Clean Room Engineering.",
   subheadline:
-    "KEMMAX — End-to-end design, engineering, commissioning & HVAC for controlled environments.",
+    "KEMMAX delivers end-to-end cleanroom solutions for industries where precision and purity are non-negotiable. From design and supply to installation and validation, we engineer controlled environments built to international standards.",
   cta: "Get Started",
   stats: [
     { value: "ISO", label: "Aligned Standards" },
@@ -34,7 +34,7 @@ export const hero = {
     { value: "24/7", label: "Technical Support" },
   ],
   backgroundImage:
-    "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=1920&q=80",
+    "/pics/cleanroom-workers.jpg",
 };
 
 export const services = [
@@ -44,7 +44,7 @@ export const services = [
     description:
       "Comprehensive clean room layout design aligned with ISO and GMP standards for optimal workflow and contamination control.",
     image:
-      "https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80",
+      "/pics/factory-worker-glass.jpg",
     path: "/about",
   },
   {
@@ -53,7 +53,7 @@ export const services = [
     description:
       "Advanced HVAC, filtration, and pressure cascade engineering for pharmaceutical, semiconductor, and healthcare facilities.",
     image:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=600&q=80",
+      "/pics/scientist-machine.jpg",
     path: "/about",
   },
   {
@@ -62,7 +62,7 @@ export const services = [
     description:
       "Full IQ/OQ/PQ commissioning and performance qualification to ensure your clean room meets regulatory requirements.",
     image:
-      "https://images.unsplash.com/photo-1532187863486-abf9db0281ae?w=600&q=80",
+      "/pics/lab-workers.jpg",
     path: "/about",
   },
   {
@@ -71,20 +71,20 @@ export const services = [
     description:
       "Specialized air handling systems with HEPA filtration, temperature control, and humidity management for critical environments.",
     image:
-      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80",
+      "/pics/futuristic-chip.jpg",
     path: "/products",
   },
 ];
 
 export const companyIntro = {
-  title: "Engineering Controlled Environments",
+  title: "Engineering Clean. Building Trust.",
   description:
-    "KEMMAX is a Chennai-based clean room specialist delivering turnkey solutions for industries that demand the highest standards of environmental control. From initial concept through design, engineering, and commissioning, we partner with you to create spaces where precision matters most.",
+    "KEMMAX is a specialist cleanroom solutions company dedicated to delivering controlled environments that meet the highest standards of cleanliness, safety, and regulatory compliance. We work with clients across India to design, supply, install, and validate cleanrooms tailored to their exact operational and compliance requirements.",
   highlights: [
     `${company.yearsExperience} years of industry experience`,
-    "Turnkey clean room solutions",
-    "ISO & GMP compliant designs",
-    "Pan-India project delivery",
+    "Turnkey clean room solutions — design, supply, install & validate",
+    "ISO & GMP compliant products and practices",
+    "Pan-India project delivery with reliable after-sales support",
   ],
 };
 
@@ -95,7 +95,7 @@ export const industries = [
       "GMP-compliant clean rooms for drug manufacturing, sterile processing, and quality control laboratories.",
     icon: "pill",
     image:
-      "https://images.unsplash.com/photo-1576671081837-49000212a370?w=600&q=80",
+      "/pics/cleanroom-workers.jpg",
   },
   {
     name: "Semiconductor",
@@ -103,7 +103,7 @@ export const industries = [
       "Ultra-clean environments with precise particle control for wafer fabrication and microelectronics assembly.",
     icon: "cpu",
     image:
-      "https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80",
+      "/pics/futuristic-chip.jpg",
   },
   {
     name: "Automotive",
@@ -111,7 +111,7 @@ export const industries = [
       "Controlled environments for precision component manufacturing, painting booths, and quality inspection areas.",
     icon: "car",
     image:
-      "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80",
+      "/pics/car-assembly.jpg",
   },
   {
     name: "Healthcare",
@@ -119,7 +119,7 @@ export const industries = [
       "Sterile processing areas, isolation rooms, and specialized medical device manufacturing facilities.",
     icon: "heart-pulse",
     image:
-      "https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80",
+      "/pics/healthcare-ai.jpg",
   },
   {
     name: "Operation Theatre",
@@ -127,7 +127,7 @@ export const industries = [
       "Hospital-grade OT suites with laminar airflow, HEPA filtration, and infection control systems.",
     icon: "stethoscope",
     image:
-      "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600&q=80",
+      "/pics/medical-ppe-lab.jpg",
   },
 ];
 
@@ -223,11 +223,18 @@ export const productCategories = [
 
 export const whyChooseUs = [
   {
-    title: "Quality Standards",
+    title: "Complete Service",
     description:
-      "Every project adheres to ISO 14644, EU GMP, and WHO guidelines with documented quality assurance processes.",
-    icon: "shield-check",
+      "Design, supply, installation, and validation under one roof — seamless end-to-end delivery.",
+    icon: "building-2",
     highlighted: true,
+  },
+  {
+    title: "ISO & GMP Compliant",
+    description:
+      "Every project adheres to ISO 14644, EU GMP, and WHO guidelines with documented quality assurance.",
+    icon: "shield-check",
+    highlighted: false,
   },
   {
     title: "Industry Expertise",
@@ -240,13 +247,6 @@ export const whyChooseUs = [
     title: "Project Experience",
     description:
       "100+ successful clean room installations delivered on time and within budget across India.",
-    icon: "building-2",
-    highlighted: false,
-  },
-  {
-    title: "Technical Capability",
-    description:
-      "In-house engineering team with expertise in HVAC design, CFD analysis, and validation protocols.",
     icon: "wrench",
     highlighted: false,
   },
@@ -260,54 +260,54 @@ export const whyChooseUs = [
 ];
 
 export const cta = {
-  headline: "Let's Build Something Great Together",
+  headline: "Ready to Build Your Cleanroom?",
   message:
-    "Contact us today to discuss your clean room requirements.",
+    "Contact KEMMAX today for a free consultation and quote. Our team is ready to engineer the right controlled environment for your facility.",
   button: "Contact Us",
   image:
-    "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80",
+    "/pics/factory-worker-glass.jpg",
 };
 
 export const about = {
   overview: [
-    "Clean Room Projects (OPC) Pvt Ltd, operating under the brand KEMMAX, is a leading clean room engineering company based in Chennai, India. We specialize in the design, engineering, commissioning, and HVAC solutions for controlled environments across diverse industries.",
-    "With over 15 years of experience, our team has delivered turnkey clean room projects for pharmaceutical manufacturers, semiconductor fabs, automotive plants, healthcare facilities, and hospital operation theatres. We combine technical excellence with a deep understanding of regulatory requirements to deliver spaces that meet the most stringent contamination control standards.",
-    "From initial feasibility studies and conceptual design through detailed engineering, construction supervision, and performance qualification, KEMMAX provides end-to-end project management. Our commitment to quality, innovation, and customer satisfaction has made us a trusted partner for organizations that cannot compromise on environmental control.",
+    "KEMMAX is a specialist cleanroom solutions company dedicated to delivering controlled environments that meet the highest standards of cleanliness, safety, and regulatory compliance. We work with clients across India to design, supply, install, and validate cleanrooms tailored to their exact operational and compliance requirements.",
+    "We provide a comprehensive range of cleanroom products and turnkey project services — from modular cleanroom systems and HVAC solutions to validation support and compliance documentation. Whether you're building a new facility or upgrading an existing one, KEMMAX handles every stage of the process.",
+    "With deep expertise across pharmaceutical, semiconductor, healthcare, and industrial sectors, KEMMAX is your trusted partner for compliant, high-performance cleanroom environments. Our commitment to quality, innovation, and customer satisfaction has made us a preferred partner for organizations that cannot compromise on environmental control.",
   ],
   vision:
-    "To be India's most trusted clean room engineering partner, setting the benchmark for quality, innovation, and reliability in controlled environment solutions.",
+    "To be the most trusted cleanroom solutions provider in India — recognised for our engineering precision, quality standards, and commitment to every client we serve.",
   mission:
-    "Delivering precision-controlled environments through innovative design, uncompromising quality, and collaborative partnerships that enable our clients to achieve their operational and regulatory goals.",
+    "To deliver cleanroom environments that empower our clients to operate with confidence, meet regulatory requirements, and achieve the highest levels of product and process integrity.",
   values: [
+    {
+      title: "Quality",
+      description:
+        "ISO-compliant products and installation at every stage of the project lifecycle.",
+      icon: "shield-check",
+    },
+    {
+      title: "Reliability",
+      description:
+        "On-time delivery and dependable after-sales support you can count on.",
+      icon: "handshake",
+    },
+    {
+      title: "Expertise",
+      description:
+        "Deep technical knowledge across all cleanroom disciplines and regulatory standards.",
+      icon: "crosshair",
+    },
     {
       title: "Integrity",
       description:
-        "Transparent processes and honest communication in every client engagement.",
+        "Honest, transparent, and accountable in everything we do.",
       icon: "scale",
-    },
-    {
-      title: "Precision",
-      description:
-        "Meticulous attention to detail in design, engineering, and execution.",
-      icon: "crosshair",
     },
     {
       title: "Innovation",
       description:
-        "Continuous adoption of advanced technologies and best practices.",
+        "Continuously improving our solutions and processes to stay ahead.",
       icon: "lightbulb",
-    },
-    {
-      title: "Safety",
-      description:
-        "Uncompromising commitment to workplace safety and environmental compliance.",
-      icon: "hard-hat",
-    },
-    {
-      title: "Partnership",
-      description:
-        "Building long-term relationships through reliable delivery and support.",
-      icon: "handshake",
     },
   ],
   stats: [

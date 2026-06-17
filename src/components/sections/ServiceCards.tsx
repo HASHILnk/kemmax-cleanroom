@@ -1,54 +1,85 @@
 import { Link } from "react-router-dom";
-import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { motion, type Variants } from "framer-motion";
+import {
+  ArrowRight,
+  PenTool,
+  Cog,
+  ClipboardCheck,
+  Thermometer,
+  type LucideIcon,
+} from "lucide-react";
 import { services } from "../../data/content";
-import { staggerContainer, staggerItem } from "../ui/ScrollReveal";
+
+const serviceIconMap: Record<string, LucideIcon> = {
+  Design: PenTool,
+  Engineering: Cog,
+  Commissioning: ClipboardCheck,
+  HVAC: Thermometer,
+};
+
+const cardVariants: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { type: "spring" as const, stiffness: 200, damping: 20 },
+  },
+};
+
+const containerVariants: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.1, delayChildren: 0.1 },
+  },
+};
 
 export function ServiceCards() {
   return (
-    <section className="relative z-20 -mt-24 pb-8 md:-mt-32">
+    <section className="relative z-20 -mt-20 pb-12 md:-mt-28">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <motion.div
-          variants={staggerContainer}
+          variants={containerVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-40px" }}
           className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4"
         >
-          {services.map((service) => (
-            <motion.div key={service.title} variants={staggerItem}>
-              <Link to={service.path} className="group block">
-                <div className="relative overflow-hidden rounded-2xl bg-teal p-6 shadow-xl shadow-teal/20 transition-all duration-500 group-hover:-translate-y-2 group-hover:shadow-2xl group-hover:shadow-teal/30">
-                  <div className="relative z-10">
-                    <h3 className="font-display text-xl font-bold uppercase tracking-wide text-white">
-                      {service.title}
-                    </h3>
-                    <p className="mt-1 text-sm text-white/80">
-                      {service.subtitle}
-                    </p>
-                    <div className="mt-4 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-white/90">
-                      Learn More
-                      <ArrowRight className="h-3 w-3 transition-transform group-hover:translate-x-1" />
-                    </div>
-                  </div>
-                  <div className="absolute -right-4 -bottom-4 h-32 w-32 overflow-hidden rounded-xl opacity-30 transition-opacity group-hover:opacity-50">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
-                  <div className="absolute -right-2 -bottom-16 hidden h-40 w-40 overflow-hidden rounded-2xl border-4 border-white/20 shadow-2xl transition-transform duration-500 group-hover:-translate-y-2 md:block">
-                    <img
-                      src={service.image}
-                      alt={service.title}
-                      className="h-full w-full object-cover"
-                    />
-                  </div>
+          {services.map((service) => {
+            const Icon = serviceIconMap[service.title] || Cog;
+            return (
+              <motion.div
+                key={service.title}
+                variants={cardVariants}
+                whileHover={{ scale: 1.03, y: -4 }}
+                transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                className="group relative h-full rounded-2xl glass-light p-8 transition-all duration-300 hover:glow-teal"
+              >
+                <div className="absolute top-0 left-8 h-1 w-14 rounded-full bg-teal" />
+                <div className="mb-5 inline-flex rounded-xl bg-teal/10 p-3">
+                  <Icon className="h-6 w-6 text-teal" />
                 </div>
-              </Link>
-            </motion.div>
-          ))}
+                <h3 className="font-display text-xl font-bold text-navy">
+                  {service.title}
+                </h3>
+                <p className="mt-1 text-sm font-medium text-teal">
+                  {service.subtitle}
+                </p>
+                <p className="mt-3 text-sm leading-relaxed text-navy/60">
+                  {service.description}
+                </p>
+                <div className="mt-6 pt-4 border-t border-navy/5">
+                  <Link
+                    to={service.path}
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal transition-colors hover:text-teal-dark"
+                  >
+                    Learn More
+                    <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  </Link>
+                </div>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

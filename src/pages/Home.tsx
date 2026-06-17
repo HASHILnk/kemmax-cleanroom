@@ -1,3 +1,4 @@
+import { usePageMeta } from "../hooks/usePageMeta";
 import { Hero } from "../components/sections/Hero";
 import { ServiceCards } from "../components/sections/ServiceCards";
 import { CompanyIntro } from "../components/sections/CompanyIntro";
@@ -8,6 +9,12 @@ import { CTABanner } from "../components/sections/CTABanner";
 import { ContactPreview } from "../components/sections/ContactPreview";
 
 export function Home() {
+  usePageMeta({
+    title: "Clean Room Engineering Solutions",
+    description:
+      "KEMMAX delivers end-to-end cleanroom solutions for industries where precision and purity are non-negotiable. Design, supply, installation & validation.",
+  });
+
   return (
     <>
       <Hero />

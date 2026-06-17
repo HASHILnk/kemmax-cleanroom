@@ -1,9 +1,13 @@
 import { CheckCircle } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { companyIntro } from "../../data/content";
 import { SectionHeader } from "../ui/SectionHeader";
 import { ScrollReveal } from "../ui/ScrollReveal";
 
 export function CompanyIntro() {
+  const { scrollYProgress } = useScroll();
+  const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.05]);
+
   return (
     <section className="bg-surface py-24">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
@@ -16,9 +20,11 @@ export function CompanyIntro() {
         <div className="grid items-center gap-12 lg:grid-cols-2">
           <ScrollReveal>
             <div className="relative overflow-hidden rounded-2xl">
-              <img
-                src="https://images.unsplash.com/photo-1581092160607-ee22621dd87a?w=800&q=80"
+              <motion.img
+                style={{ scale: imgScale }}
+                src="/pics/cleanroom-workers.jpg"
                 alt="Clean room facility"
+                loading="lazy"
                 className="h-80 w-full object-cover lg:h-[420px]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/60 to-transparent" />

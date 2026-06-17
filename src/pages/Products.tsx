@@ -3,10 +3,15 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { allProducts, productCategories, company } from "../data/content";
+import { usePageMeta } from "../hooks/usePageMeta";
 import { SectionHeader } from "../components/ui/SectionHeader";
-import { staggerContainer, staggerItem } from "../components/ui/ScrollReveal";
 
 export function Products() {
+  usePageMeta({
+    title: "Clean Room Products & Solutions",
+    description:
+      "Browse our comprehensive range of clean room products including modular panels, HEPA filtration, HVAC systems, pass boxes, and validation services by KEMMAX.",
+  });
   const [activeCategory, setActiveCategory] = useState("All");
 
   const filtered =
@@ -65,9 +70,6 @@ export function Products() {
 
           <motion.div
             layout
-            variants={staggerContainer}
-            initial="hidden"
-            animate="visible"
             className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
           >
             <AnimatePresence mode="popLayout">
@@ -75,17 +77,17 @@ export function Products() {
                 <motion.div
                   key={product.id}
                   layout
-                  variants={staggerItem}
-                  initial={{ opacity: 0, scale: 0.95 }}
+                  initial={{ opacity: 0, scale: 0.9 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.95 }}
-                  transition={{ duration: 0.3 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
                 >
                   <div className="group flex h-full flex-col overflow-hidden rounded-2xl bg-white shadow-lg shadow-navy/5 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl hover:shadow-teal/10">
                     <div className="relative h-52 overflow-hidden">
                       <img
                         src={product.image}
                         alt={product.name}
+                        loading="lazy"
                         className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                       />
                       <span className="absolute top-4 left-4 rounded-full bg-teal px-3 py-1 text-xs font-semibold text-white">
