@@ -17,7 +17,7 @@ export function CompanyIntro() {
   const imgScale = useTransform(scrollYProgress, [0, 1], [1.15, 1.03]);
 
   return (
-    <section ref={containerRef} className="bg-surface py-24">
+    <section ref={containerRef} className="bg-surface py-16">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <SectionHeader
           badge="About KEMMAX"

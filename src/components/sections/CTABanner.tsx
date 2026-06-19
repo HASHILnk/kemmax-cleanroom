@@ -10,7 +10,7 @@ export function CTABanner() {
   const imgScale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   return (
-    <section className="py-24">
+    <section className="py-16">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <ScrollReveal>
           <div className="overflow-hidden rounded-3xl border border-teal/20 bg-navy shadow-2xl">

@@ -23,7 +23,7 @@ const staggerItem: Variants = {
 
 export function FeaturedProducts() {
   return (
-    <section className="bg-surface py-24">
+    <section className="bg-surface py-16">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <SectionHeader
           badge="Products"

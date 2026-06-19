@@ -37,7 +37,7 @@ const iconMap: Record<string, LucideIcon> = {
 
 export function IndustriesGrid() {
   return (
-    <section className="py-24">
+    <section className="py-16">
       <div className="mx-auto max-w-7xl px-4 md:px-8">
         <SectionHeader
           badge="Industries"
