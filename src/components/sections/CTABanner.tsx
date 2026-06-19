@@ -15,15 +15,16 @@ export function CTABanner() {
         <ScrollReveal>
           <div className="overflow-hidden rounded-3xl border border-teal/20 bg-navy shadow-2xl">
             <div className="grid lg:grid-cols-2">
-              <motion.div style={{ scale: imgScale }} className="relative h-64 lg:h-auto">
-                <img
+              <div className="relative h-64 overflow-hidden lg:h-auto">
+                <motion.img
+                  style={{ scale: imgScale }}
                   src={cta.image}
                   alt="Engineering excellence"
                   loading="lazy"
                   className="h-full w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-navy/80 lg:bg-gradient-to-r lg:from-transparent lg:to-navy" />
-              </motion.div>
+              </div>
               <div className="flex flex-col justify-center p-8 md:p-12 lg:p-16">
                 <motion.h2
                   initial={{ opacity: 0, x: 20 }}

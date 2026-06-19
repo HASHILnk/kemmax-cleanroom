@@ -19,6 +19,8 @@ import prodFullGlass from "../assets/images/full-glass-panel.png";
 import prodPreformed from "../assets/images/preformed-panels.png";
 import prodFireRated from "../assets/images/fire-rated-panels.png";
 import prodFlooring from "../assets/images/epoxy-flooring.png";
+import cleanroomCorridor from "../assets/images/cleanroom-corridor.png";
+
 
 export const company = {
   name: "KEMMAX",
@@ -165,7 +167,7 @@ export const featuredProducts = [
     name: "Air Showers & Entry Chambers",
     description:
       "Premium stainless steel cleanroom air showers equipped with high-velocity air nozzles (20-25 m/s) and HEPA filters to decontaminate personnel prior to entry.",
-    category: "Accessories",
+    category: "Equipment",
     image: prodAirShower,
   },
 ];
@@ -209,7 +211,7 @@ export const allProducts = [
     name: "Piping & Utility Insulation",
     description:
       "High-grade chilled water, hot water, and utility piping networks insulated with nitrile rubber or glasswool for optimal thermal efficiency.",
-    category: "Accessories",
+    category: "HVAC",
     image: prodPiping,
   },
   {
@@ -257,7 +259,7 @@ export const allProducts = [
     name: "Inbuilt & Exposed Return Air Risers (RAR)",
     description:
       "Flush inbuilt or surface-mounted Return Air Risers (RAR) designed for optimal air recycling and laminar flow maintenance inside cleanrooms.",
-    category: "Panels",
+    category: "HVAC",
     image: prodRAR,
   },
   {
@@ -265,7 +267,7 @@ export const allProducts = [
     name: "Cleanroom Flooring Systems",
     description:
       "Self-leveling epoxy and polyurethane (PU) flooring systems, creating a seamless, chemical-resistant, and electrostatic discharge (ESD) safe surface.",
-    category: "Panels",
+    category: "Flooring",
     image: prodFlooring,
   },
 ];
@@ -274,11 +276,9 @@ export const productCategories = [
   "All",
   "Panels",
   "HVAC",
-  "Filtration",
   "Doors",
-  "Monitoring",
-  "Validation",
-  "Accessories",
+  "Flooring",
+  "Equipment",
 ];
 
 export const whyChooseUs = [
@@ -324,7 +324,7 @@ export const cta = {
   message:
     "Contact KEMMAX today for a free consultation and quote. Our team is ready to engineer the right controlled environment for your facility.",
   button: "Contact Us",
-  image: serviceFactory,
+  image: cleanroomCorridor,
 };
 
 export const about = {
