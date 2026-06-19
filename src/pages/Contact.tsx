@@ -23,41 +23,26 @@ export function Contact() {
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
 
-  const formEndpoint = import.meta.env.VITE_FORM_ENDPOINT as string | undefined;
-
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
 
     const form = e.currentTarget;
     const formData = new FormData(form);
+    formData.append("access_key", "f6645a68-35b9-456e-b19f-fe8c3940857b");
 
-    if (formEndpoint) {
-      try {
-        const response = await fetch(formEndpoint, {
-          method: "POST",
-          body: formData,
-        });
-        if (response.ok) {
-          setSubmitted(true);
-          form.reset();
-        }
-      } catch {
-        window.location.href = `mailto:${company.email}?subject=KEMMAX Enquiry&body=${encodeURIComponent(
-          `Name: ${formData.get("name")}\nEmail: ${formData.get("email")}\nPhone: ${formData.get("phone")}\nCompany: ${formData.get("company")}\nProduct: ${formData.get("product")}\nMessage: ${formData.get("message")}`,
-        )}`;
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData,
+      });
+      const data = await response.json();
+      if (data.success) {
+        setSubmitted(true);
+        form.reset();
       }
-    } else {
-      const name = formData.get("name");
-      const email = formData.get("email");
-      const phone = formData.get("phone");
-      const companyName = formData.get("company");
-      const product = formData.get("product");
-      const message = formData.get("message");
-      window.location.href = `mailto:${company.email}?subject=KEMMAX Enquiry from ${name}&body=${encodeURIComponent(
-        `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nCompany: ${companyName}\nProduct Interest: ${product}\n\nMessage:\n${message}`,
-      )}`;
-      setSubmitted(true);
+    } catch {
+      // silent fail
     }
 
     setLoading(false);
