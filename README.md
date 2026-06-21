@@ -1,6 +1,6 @@
 # KEMMAX — Clean Room Engineering Website
 
-A modern, animated marketing website for **KEMMAX** (Clean Room Projects OPC Pvt Ltd), a Chennai-based clean room engineering company specializing in design, engineering, commissioning, and HVAC for controlled environments.
+A modern, animated marketing website for **KEMMAX** (Clean Room Projects Pvt Ltd), a Chennai-based clean room engineering company specializing in design, engineering, commissioning, and HVAC for controlled environments.
 
 ## Tech Stack
 
